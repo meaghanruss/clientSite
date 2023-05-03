@@ -27,3 +27,5 @@ There are three clickable areas of the application:
 
 Each one brings you to a different file or folder. The 'Understanding You' click will bring open the 'Understanding You' folder for the client, the Portfolio review will open the 'Current.docx' click in the Portfolio Review folder, and lastly the Vision click will open the 'Current.docx' in the Vision folder.
 
+To close the application, just close it like you would any other applicaiton.
+
