@@ -107,9 +107,7 @@ function showTab(tab) {
     }
     else {
         x.innerHTML = `
-            <div class="header">
-                <button onclick="clearData()">Clear Data</button>
-            </div>
+            <div class="header"></div>
             <div class="grid-container middle" style="` + db.font + `">
                 <div class="client">
                     <img class="grid-images" src="` + db.base + `\\Images\\client.jpg">
@@ -140,11 +138,6 @@ function showTab(tab) {
 function saveData() {
     saveLocalInfo();
     showTab(db.tab);
-}
-
-// Clears the data in the localStorage, for dev only
-function clearData() {
-    window.localStorage.clear();
 }
 
 // Calls the openFile function in main.js
@@ -246,3 +239,4 @@ function saveFont(item) {
     // reloads the page to show the new font chosen
     window.location.reload();
 }
+
