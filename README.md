@@ -1,7 +1,9 @@
 # Welcome
 This is a general overview of how the application works and what needs to be done by the user to set up the system.
 
-The folders in this GitHub repository include the 'Understanding You' folder and src folder. The 'Understanding You' folder would be located in the clients folder and contains an example of the working application as 'client.exe' and there are a few folders that will be located in the 'Understanding You' folder. The src folder contains the source code used to create the application. Due to GitHub's policy on only allowing files under 25MB to be uploaded, a ZIP file was created for the client.exe application, the application will need to be extracted.
+Due to GitHub's policy on only allowing files under 25MB to be uploaded,
+
+The folders in this GitHub repository include the 'Understanding You' folder and src folder. The 'Understanding You' folder would be located in the clients folder and contains an example of the working application as 'client.exe' and there are a few folders that will be located in the 'Understanding You' folder. The src folder contains the source code used to create the application.
 
 # Setting the Images
 Before we open the application, there should be a folder called 'Images' in your 'Understanding You' folder, this folder will contain the images you wish to display in the application. To make it easy, the images need to be labelled according to their cooresponding part: the image for the Vision component will be named 'vision.jpg', for the Wealth Wheel the image will named 'wheel.jpg', for the client's name component the image will be named 'client.jpg', and the image for the Portfolio Review component will be named 'portfolio.jpg'. For the bottom banner that contains the name of the bank and the teams name, the images for that are named 'bank.png' and 'team.png' respectively. 
