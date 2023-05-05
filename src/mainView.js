@@ -3,15 +3,18 @@ let db;
 // Loads local data and shows proper page when application is opened
 document.addEventListener('DOMContentLoaded', async function(event) {
     await loadLocalInfo();
+    console.log("localStorage.files:", localStorage.getItem("files"))
     showTab(db.tab);
 });
 
 // Saves the data into localStorage, except for font, when save button is clicked
 function saveLocalInfo() {
     let cname = document.getElementsByName("cname")[0].value;
+    let base = document.getElementsByName("base")[0].value;
     
     window.localStorage.setItem("cname", cname);
     window.localStorage.setItem("tab", 1);
+    window.localStorage.setItem("base", base);
 
     window.location.reload();
 }
@@ -22,21 +25,26 @@ function loadLocalInfo() {
     let cname = window.localStorage.getItem("cname");
     let tab = window.localStorage.getItem("tab");
     let font = window.localStorage.getItem("font");
+    let base = window.localStorage.getItem("base");
     
     if (tab == null) tab = 0;
     if (cname == null) cname = 'Client Name';
     if (font == null) font = "Veranda, serif;";
+    if (base == null) base = "Image Base URL";
 
     db = {
         'cname': cname,
         'tab': tab,
-        'font': font
+        'font': font,
+        'base': base
     };
+
 }
 
 // Shows the page depending on whether the clients name is saved or not
 function showTab(tab) {
     var x = document.getElementById("grid");
+    var foot = document.getElementById("footer");
 
     // Based on whether its the first page (0), which users will set the client name and font
     // or the second page (1) which the users clients will see
@@ -80,13 +88,18 @@ function showTab(tab) {
                         0 1 2 3 4 5 6 7 8 9
                     </p>
                 </div>
+                <br>
+                <br>
+                <br>
                 <div class="client">
-                    <br>
-                    <br>
-                    <br>
-                    <br>
                     <p>What is the clients name?</p>
                     <input type="text" name="cname" value="" placeholder="Client Name..." />
+                </div>
+                <br>
+                <div class="image">
+                    <p>What is the folder link to 'Understanding You'?</p>
+                    <p>Example Link: C:/Users/Understanding You</p>
+                    <input type="text" name="base" value="" placeholder="Image Link" />
                     <button id="save" onclick="saveData()">Save</button>
                 </div>
             </div>
@@ -95,26 +108,30 @@ function showTab(tab) {
     else {
         x.innerHTML = `
             <div class="header">
-                <button id="clear" onclick="clearData()">Clear Data</button>
+                <button onclick="clearData()">Clear Data</button>
             </div>
             <div class="grid-container middle" style="` + db.font + `">
                 <div class="client">
-                    <img class="grid-images" src="../Understanding You/Images/client.png">
+                    <img class="grid-images" src="` + db.base + `\\Images\\client.jpg">
                     <div class="top-client" onclick="openFolder()">Understanding You</div>
                     <div class="grid-client">`+ db.cname +`</div>
                 </div>
                 <div class="vision">
-                    <input type="image" class="grid-images" src="../Understanding You/Images/vision.jpg" onclick="openFile('Vision')">
+                    <input type="image" class="grid-images" src="` + db.base + `\\Images\\vision.jpg" onclick="openFile('Vision')">
                     <div class="grid-text">Vision</div>
                 </div>
                 <div class="portfolio"> 
-                    <input type="image" class="grid-images" src="../Understanding You/Images/portfolio.jpg" onclick="openFile('Portfolio Review')">
+                    <input type="image" class="grid-images" src="` + db.base + `\\Images\\portfolio.jpg" onclick="openFile('Portfolio Review')">
                     <div class="grid-text">Portfolio Review</div>
                 </div>
                 <div class="wheel">
-                    <img class="grid-images" src="../Understanding You/Images/wheel.jpg">
+                    <img class="grid-images" src="` + db.base + `\\Images\\wheel.jpg">
                 </div>
             </div>
+        `
+        foot.innerHTML = `
+            <img class="footer-img" src="` + db.base + `\\Images\\bank.png">
+            <img class="footer-img" src="` + db.base + `\\Images\\team.png">
         `
     }
 }
@@ -132,12 +149,14 @@ function clearData() {
 
 // Calls the openFile function in main.js
 function openFile(name) {
-    window.Bridge.openFile(name);
+    let path = db.base + '\\' + name;
+    window.Bridge.openFile(path);
 }
 
 // Calls the openFolder function in main.js
 function openFolder() {
-    window.Bridge.openFolder();
+    let path = db.base;
+    window.Bridge.openFolder(path);
 }
 
 // Changes font style based on choice by user
@@ -227,4 +246,3 @@ function saveFont(item) {
     // reloads the page to show the new font chosen
     window.location.reload();
 }
-
