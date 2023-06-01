@@ -1,8 +1,6 @@
 # Welcome
 This is a general overview of how the application works and what needs to be done by the user to set up the system.
 
-Due to GitHub's policy on only allowing files under 25MB to be uploaded,
-
 The folders in this GitHub repository include the 'Understanding You' folder and src folder. The 'Understanding You' folder would be located in the clients folder and contains an example of the working application as 'client.exe' and there are a few folders that will be located in the 'Understanding You' folder. The src folder contains the source code used to create the application.
 
 # Setting the Images
@@ -11,12 +9,12 @@ Before we open the application, there should be a folder called 'Images' in your
 __*It's important to note that the images in the image folder need to be the exact name and format as stated above. Meaning the client, portfolio, vision, and wheel images must be jpg format, and the bank and team images must be png format.*__
 
 # Starting the Application
-To start the application, go into your 'Understanding You' folder and run then client.exe application, the name of the executeable file can be changed to anything of your choosing but the base name is client.exe.
+To start the application, go into your 'Understanding You' folder and run then client.exe application as an administrator, the name of the executable file can be changed to anything of your choosing but the base name is client.exe.
 
 Once the application is running, the following screen will be shown:
 ![image](https://user-images.githubusercontent.com/127133975/236402651-bab4db8c-b239-4be6-95d1-e73124029d39.png)
 
-Located at the top of the page is where the font will be chosen. There are multiple different styles to choose from and the sample paragraph below shows the new font each time it's changed. This does reload the pag with each time it's changed so the client name will have to be entered after the font is chosen and before saving, or reentered everytime the font is changed before saving. 
+Located at the top of the page is where the font will be chosen. There are multiple different styles to choose from and the sample paragraph below shows the new font each time it's changed. This does reload the page with each time it's changed so the client name will have to be entered after the font is chosen and before saving, or reentered everytime the font is changed before saving. 
 
 Once the font is chosen, then the client name needs to be filled out in the input box below. The client name will remain whatever is typed into the box, so double check for spelling mistakes before saving.
 
